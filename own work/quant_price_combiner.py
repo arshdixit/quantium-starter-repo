@@ -21,7 +21,7 @@ def write_row(row):
 file_1 = '/home/jungle/quantium-starter-repo-main/data/daily_sales_data_0.csv'
 file_2 = '/home/jungle/quantium-starter-repo-main/data/daily_sales_data_1.csv'
 file_3 = '/home/jungle/quantium-starter-repo-main/data/daily_sales_data_2.csv'
-CONST_OUTPUT_FILE = 'tasqas_out2.csv'
+CONST_OUTPUT_FILE = '/home/jungle/quantium-starter-repo-main/tasqasdfasdfafdasfsas_out2.csv'
 
 with open(CONST_OUTPUT_FILE, mode = 'w') as out_file:
     writer = csv.writer(out_file)
@@ -29,11 +29,11 @@ with open(CONST_OUTPUT_FILE, mode = 'w') as out_file:
     
 
 
-    data = 'asfdasfa.csv'
+    data = '/home/jungle/quantium-starter-repo-main/asfdasfa.csv'
     with open(data) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter = ",")
         
-        write_row(['product','sales','date','region'])
+        write_row(['sales','date','region'])
         next(csv_reader)
     
         
@@ -46,7 +46,7 @@ with open(CONST_OUTPUT_FILE, mode = 'w') as out_file:
             print("sales: " + str(sales))
             
             
-            out_row = [row[CONST_PRODUCT_COLUMN], sales , row[CONST_DATE], row[CONST_REGION]]
+            out_row = [sales , row[CONST_DATE], row[CONST_REGION]]
             write_row(out_row)
 
 
