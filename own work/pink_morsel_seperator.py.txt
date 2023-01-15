@@ -1,0 +1,50 @@
+import csv
+
+
+CONST_PRODUCT_COLUMN = 0
+CONST_PRICE_COLUMN = 1
+
+
+
+CONST_PRODUCT_TO_PRESERVE = 'pink morsel'
+
+    
+def write_row(row):
+    writer.writerow(row)
+def parse(data, first):
+    #you input the file_name and it parses and sets it through a filter/parser
+    #the second arg (bool) is to specify if they are the first file
+    with open(data) as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter = ",")
+        #writes the first row to the new excel sheet
+        if first:
+            write_row(next(csv_reader))
+        
+ 
+        for row in csv_reader:
+            thresh(row)
+        
+
+def thresh(row):
+    //checks if it's the product we want to retain
+    if row[CONST_PRODUCT_COLUMN] == CONST_PRODUCT_TO_PRESERVE:
+                write_row(row)
+
+
+
+#location of all the files
+file_1 = '/home/jungle/quantium-starter-repo-main/data/daily_sales_data_0.csv'
+file_2 = '/home/jungle/quantium-starter-repo-main/data/daily_sales_data_1.csv'
+file_3 = '/home/jungle/quantium-starter-repo-main/data/daily_sales_data_2.csv'
+CONST_OUTPUT_FILE = 'asfdasfa.csv'
+
+#opens up the ouput files and parses the input files, 
+with open(CONST_OUTPUT_FILE, mode = 'w') as out_file:
+    writer = csv.writer(out_file)
+    parse(file_1, True)
+    parse(file_2, False)
+    parse(file_3, False)
+
+
+
+    
