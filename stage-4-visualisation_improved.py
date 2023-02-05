@@ -16,6 +16,9 @@ import datetime
 CONST_PRICE_CHANGE_DATE = datetime.datetime(2021, 1, 15)
 CONST_INPUT_FILE = 'https://raw.githubusercontent.com/arshdixit/quantium-starter-repo/main/STAGE_2_OUTPUT_DATA.csv'
 CONST_LINE_COLOUR = "yellow"
+HEADER_ID_NAME = "top"
+RADIO_ID_NAME = "radio_text"
+
 
 GRAPH_COLOUR_LIST = {'font': "#0CF0DA",'main' : '#F024DB'  ,'background' : "#10A395"  }
 OUTSIDE_COLOUR_LIST = {'font': "#F024DB",'main' : '#A30894'  ,'background' : "#F0CD3C" }
@@ -30,20 +33,18 @@ title = " "* 68 + "("+ CONST_LINE_COLOUR + " line represents when the price chan
 #reads the pdf and inputs it to the data frame
 raw_data_frame = pd.read_csv(CONST_INPUT_FILE)
 data_frame = raw_data_frame
-#merges all adds together the sales of all the different region
 
-#try cutting out these two liens
 
 
 #adds the vertical line
 
 top = html.H1(
     "pink morsels sales - time graph",
-    id="top",
+    id=HEADER_ID_NAME,
 )
 radio_text = html.H4(
     "Please select the region",
-    id="radio_text",
+    id=RADIO_ID_NAME,
  
 ) 
 
@@ -56,6 +57,7 @@ app.layout = html.Div([
             id='sales_time_graph',
     )
 ],
+    #
     style={
         "textAlign": "center",
         "background-color": OUTSIDE_COLOUR_LIST["background"],
